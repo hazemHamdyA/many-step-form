@@ -5,7 +5,9 @@
         <h3 class="text-[#02295A] font-bold">
           {{ mainPlan?.name }} ({{ mainPlan?.timeStamp }})
         </h3>
-        <a href="#" class="text-[#9699ab] underline">Change</a>
+        <a href="#" @click="curNumber = 2" class="text-[#9699ab] underline"
+          >Change</a
+        >
       </div>
       <span class="text-[#152436] font-bold"
         >${{ mainPlan?.price }}/{{ shortCut }}</span
@@ -24,7 +26,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useMutation } from "../composables";
-const { nextPage, mainPlan, offers, total } = useMutation();
+const { nextPage, mainPlan, offers, total, curNumber } = useMutation();
 
 const shortCut = computed(() =>
   mainPlan?.timeStamp === "Monthly" ? "mo" : "yl"
